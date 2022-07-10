@@ -1,52 +1,52 @@
-declare module 'node-ical' {
+declare module 'next-ical' {
   import {AxiosRequestConfig} from 'axios';
   import {RRule} from 'rrule';
 
   /**
      * Methods (Sync)
      */
-  export interface NodeICalSync {
+  export interface NextICalSync {
     parseICS: (body: string) => CalendarResponse;
 
     parseFile: (file: string) => CalendarResponse;
   }
 
-  export const sync: NodeICalSync;
+  export const sync: NextICalSync;
 
   /**
      * Methods (Async)
      */
-  export interface NodeICalAsync {
-    fromURL: ((url: string, callback: NodeIcalCallback) => void) & ((url: string, options: AxiosRequestConfig | NodeIcalCallback, callback?: NodeIcalCallback) => void) & ((url: string) => Promise<CalendarResponse>);
+  export interface NextICalAsync {
+    fromURL: ((url: string, callback: NextICalCallback) => void) & ((url: string, options: AxiosRequestConfig | NextICalCallback, callback?: NextICalCallback) => void) & ((url: string) => Promise<CalendarResponse>);
 
-    parseICS: ((body: string, callback: NodeIcalCallback) => void) & ((body: string) => Promise<CalendarResponse>);
+    parseICS: ((body: string, callback: NextICalCallback) => void) & ((body: string) => Promise<CalendarResponse>);
 
-    parseFile: ((file: string, callback: NodeIcalCallback) => void) & ((file: string) => Promise<CalendarResponse>);
+    parseFile: ((file: string, callback: NextICalCallback) => void) & ((file: string) => Promise<CalendarResponse>);
   }
 
-  export const async: NodeICalAsync;
+  export const async: NextICalAsync;
 
   /**
      * Methods (Autodetect)
      */
-  export function fromURL(url: string, callback: NodeIcalCallback): void;
+  export function fromURL(url: string, callback: NextICalCallback): void;
 
-  export function fromURL(url: string, options: AxiosRequestConfig | NodeIcalCallback, callback?: NodeIcalCallback): void;
+  export function fromURL(url: string, options: AxiosRequestConfig | NextICalCallback, callback?: NextICalCallback): void;
 
   export function fromURL(url: string): Promise<CalendarResponse>;
 
-  export function parseICS(body: string, callback: NodeIcalCallback): void;
+  export function parseICS(body: string, callback: NextICalCallback): void;
 
   export function parseICS(body: string): CalendarResponse;
 
-  export function parseFile(file: string, callback: NodeIcalCallback): void;
+  export function parseFile(file: string, callback: NextICalCallback): void;
 
   export function parseFile(file: string): CalendarResponse;
 
   /**
      * Response objects
      */
-  export type NodeIcalCallback = (error: any, data: CalendarResponse) => void;
+  export type NextICalCallback = (error: any, data: CalendarResponse) => void;
 
   export type CalendarResponse = Record<string, CalendarComponent>;
 

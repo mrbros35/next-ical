@@ -9,10 +9,10 @@ const assert = require('assert');
 const vows = require('vows');
 const _ = require('underscore');
 const moment = require('moment-timezone');
-const ical = require('../node-ical.js');
+const ical = require('../next-ical.js');
 
 vows
-  .describe('node-ical')
+  .describe('next-ical')
   .addBatch({
     'when parsing test1.ics (node conferences schedule from lanyrd.com, modified)': {
       topic() {

@@ -1,8 +1,8 @@
-const ical = require('../node-ical.js');
+const ical = require('../next-ical.js');
 
 const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
 
-ical.fromURL('https://raw.githubusercontent.com/jens-maus/node-ical/master/test/test6.ics', {}, (error, data) => {
+ical.fromURL('https://raw.githubusercontent.com/jens-maus/next-ical/master/test/test6.ics', {}, (error, data) => {
   if (error) {
     console.log(new Error('ERROR: ' + error));
   } else {
