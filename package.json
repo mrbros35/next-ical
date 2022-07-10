@@ -1,21 +1,24 @@
 {
-  "name": "node-ical",
-  "version": "0.15.0",
-  "main": "node-ical.js",
-  "types": "node-ical.d.ts",
-  "description": "NodeJS class for parsing iCalendar/ICS files",
+  "name": "next-ical",
+  "version": "0.16.0",
+  "main": "next-ical.js",
+  "types": "next-ical.d.ts",
+  "description": "NextJS compatible NodeJS class for parsing iCalendar/ICS files",
   "keywords": [
     "ical",
     "ics",
     "calendar",
-    "nodejs"
+    "nodejs",
+    "next-js",
+    "next",
+    "nextjs"
   ],
-  "homepage": "https://github.com/jens-maus/node-ical",
-  "author": "Jens Maus <mail@jens-maus.de>",
+  "homepage": "https://github.com/mrbros35/next-ical",
+  "author": "mrbros35",
   "license": "Apache-2.0",
   "repository": {
     "type": "git",
-    "url": "git://github.com/jens-maus/node-ical.git"
+    "url": "git://github.com/mrbros35/next-ical.git"
   },
   "dependencies": {
     "axios": "^0.27.2",
@@ -24,18 +27,18 @@
     "uuid": "^8.3.1"
   },
   "devDependencies": {
+    "ansi-regex": ">=5.0.1",
     "diff": ">=3.5.0",
+    "dot-prop": ">=4.2.1",
     "eslint": "^7.11.0",
     "eslint-config-prettier": "^8.1.0",
     "eslint-plugin-import": "^2.18.2",
+    "pre-commit": "^1.2.2",
+    "set-value": ">=4.0.1",
     "underscore": "1.13.3",
     "vows": "^0.8.2",
-    "xo": "~0.39.1",
-    "pre-commit": "^1.2.2",
-    "dot-prop": ">=4.2.1",
     "xml-js": "^1.6.11",
-    "set-value": ">=4.0.1",
-    "ansi-regex": ">=5.0.1"
+    "xo": "~0.39.1"
   },
   "xo": {
     "space": 2
