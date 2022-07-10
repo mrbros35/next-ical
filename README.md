@@ -1,23 +1,26 @@
-# node-ical
-[![Build](https://github.com/jens-maus/node-ical/workflows/CI/badge.svg)](https://github.com/jens-maus/node-ical/actions)
-[![NPM version](https://img.shields.io/npm/v/node-ical.svg)](https://www.npmjs.com/package/node-ical)
-[![Downloads](https://img.shields.io/npm/dm/node-ical.svg)](https://www.npmjs.com/package/node-ical)
-[![Contributors](https://img.shields.io/github/contributors/jens-maus/node-ical.svg)](https://github.com/jens-maus/node-ical/graphs/contributors)
-[![License](https://img.shields.io/github/license/jens-maus/node-ical.svg)](https://github.com/jens-maus/node-ical/blob/master/LICENSE)
+# next-ical
+<!-- [![Build](https://github.com/jens-maus/next-ical/workflows/CI/badge.svg)](https://github.com/jens-maus/next-ical/actions)
+[![NPM version](https://img.shields.io/npm/v/next-ical.svg)](https://www.npmjs.com/package/next-ical)
+[![Downloads](https://img.shields.io/npm/dm/next-ical.svg)](https://www.npmjs.com/package/next-ical)
+[![Contributors](https://img.shields.io/github/contributors/jens-maus/next-ical.svg)](https://github.com/jens-maus/next-ical/graphs/contributors)
+[![License](https://img.shields.io/github/license/jens-maus/next-ical.svg)](https://github.com/jens-maus/next-ical/blob/master/LICENSE)
 [![Donate](https://img.shields.io/badge/donate-PayPal-green.svg)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=RAQSDY9YNZVCL)
-[![GitHub stars](https://img.shields.io/github/stars/jens-maus/node-ical.svg?style=social&label=Star)](https://github.com/jens-maus/node-ical/stargazers/)
+[![GitHub stars](https://img.shields.io/github/stars/jens-maus/next-ical.svg?style=social&label=Star)](https://github.com/jens-maus/next-ical/stargazers/) -->
 
-[![NPM](https://nodei.co/npm/node-ical.png?downloads=true)](https://nodei.co/npm/node-ical/)
+<!-- [![NPM](https://nodei.co/npm/next-ical.png?downloads=true)](https://nodei.co/npm/next-ical/) -->
+
+## :exclamation: Important
+This is a fork designed to eliminate an error with NextJS by removing certain features that are not compatible with it. It is recommended to use the original library (https://github.com/jens-maus/next-ical) if you do not need this support.
 
 A minimal iCalendar/ICS (http://tools.ietf.org/html/rfc5545) parser for Node.js. This module is a direct fork
 of the ical.js module by Peter Braden (https://github.com/peterbraden/ical.js) which is primarily targeted
-for parsing iCalender/ICS files in a pure JavaScript environment. (ex. within the browser itself) This node-ical
+for parsing iCalender/ICS files in a pure JavaScript environment. (ex. within the browser itself) This next-ical
 module however, primarily targets Node.js use and allows for more flexible APIs and interactions within a Node environment. (like filesystem access!)
 
 ## Install
-node-ical is availble on npm:
+next-ical is availble on npm:
 ```sh
-npm install node-ical
+npm install next-ical
 ```
 
 ## API
@@ -32,15 +35,15 @@ These are easy to use but can block the event loop and are not recommended for a
 `async` provides proper asynchronous support for iCal parsing.
 All functions will either return a promise for `async/await` or use a callback if one is provided.
 
-`autodetect` provides a mix of both for backwards compatibility with older node-ical applications.
+`autodetect` provides a mix of both for backwards compatibility with older next-ical applications.
 
-All API functions are documented using JSDoc in the [node-ical.js](node-ical.js) file.
+All API functions are documented using JSDoc in the [next-ical.js](next-ical.js) file.
 This allows for IDE hinting!
 
 ### sync
 ```javascript
 // import ical
-const ical = require('node-ical');
+const ical = require('next-ical');
 
 // use the sync function parseFile() to parse this ics file
 const events = ical.sync.parseFile('example-calendar.ics');
@@ -77,7 +80,7 @@ console.log(Object.keys(directEvents));
 ### async
 ```javascript
 // import ical
-const ical = require('node-ical');
+const ical = require('next-ical');
 
 // do stuff in an async function
 ;(async () => {
@@ -111,14 +114,15 @@ END:VCALENDAR
 
 // old fashioned callbacks cause why not
 
-// parse a file with a callback
-ical.async.parseFile('example-calendar.ics', function(err, data) {
-    if (err) {
-        console.error(err);
-        process.exit(1);
-    }
-    console.log(data);
-});
+// REMOVED FOR NEXT COMPATIBILITY
+// // parse a file with a callback
+// ical.async.parseFile('example-calendar.ics', function(err, data) {
+//     if (err) {
+//         console.error(err);
+//         process.exit(1);
+//     }
+//     console.log(data);
+// });
 
 // or a URL
 ical.async.fromURL('http://lanyrd.com/topics/nodejs/nodejs.ics', function(err, data) { console.log(data); });
@@ -145,29 +149,14 @@ Functions with callbacks provided will also have better performance over the old
 
 Parses a string with ICS content in sync. This can block the event loop on big files.
 ```javascript
-const ical = require('node-ical');
+const ical = require('next-ical');
 ical.parseICS(str);
 ```
 
 Parses a string with ICS content in async to prevent the event loop from being blocked.
 ```javascript
-const ical = require('node-ical');
+const ical = require('next-ical');
 ical.parseICS(str, function(err, data) {
-    if (err) console.log(err);
-    console.log(data);
-});
-```
-
-Parses a string with an ICS file in sync. This can block the event loop on big files.
-```javascript
-const ical = require('node-ical');
-const data = ical.parseFile(filename);
-```
-
-Parses a string with an ICS file in async to prevent event loop from being blocked.
-```javascript
-const ical = require('node-ical');
-const data = ical.parseFile(filename, function(err, data) {
     if (err) console.log(err);
     console.log(data);
 });
@@ -175,7 +164,7 @@ const data = ical.parseFile(filename, function(err, data) {
 
 Reads in the specified iCal file from the URL, parses it and returns the parsed data.
 ```javascript
-const ical = require('node-ical');
+const ical = require('next-ical');
 ical.fromURL(url, options, function(err, data) {
     if (err) console.log(err);
     console.log(data);
@@ -186,7 +175,7 @@ Use the axios library to get the specified URL (```opts``` gets passed on to the
 
 #### Example 1 - Print list of upcoming node conferences (see example.js) (parses the file synchronous)
 ```javascript
-const ical = require('node-ical');
+const ical = require('next-ical');
 const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
 
 ical.fromURL('http://lanyrd.com/topics/nodejs/nodejs.ics', {}, function (err, data) {
@@ -210,7 +199,7 @@ To get correct date from recurrences in the recurrence rule, you need to take th
 If no timezone were provided when recurrence rule were created, recurrence dates should take original start timezoneoffset and the current dates timezoneoffset into account
 
 ```javascript
-const ical = require('node-ical');
+const ical = require('next-ical');
 const moment = require('moment-timezone');
 
 ical.fromURL('http://lanyrd.com/topics/nodejs/nodejs.ics', {}, function (err, data) {
