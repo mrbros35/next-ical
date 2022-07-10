@@ -1,6 +1,6 @@
 {
   "name": "next-ical",
-  "version": "0.16.1",
+  "version": "0.16.2",
   "main": "next-ical.js",
   "types": "next-ical.d.ts",
   "description": "NextJS compatible NodeJS class for parsing iCalendar/ICS files",
