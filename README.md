@@ -10,7 +10,7 @@
 <!-- [![NPM](https://nodei.co/npm/next-ical.png?downloads=true)](https://nodei.co/npm/next-ical/) -->
 
 ## :exclamation: Important
-This is a fork designed to eliminate an error with NextJS by removing certain features that are not compatible with it. It is recommended to use the original library (https://github.com/jens-maus/next-ical) if you do not need this support.
+This is a fork designed to eliminate an error with NextJS by removing certain features that are not compatible with it. It is recommended to use the original library (https://github.com/jens-maus/node-ical) if you do not need this support.
 
 A minimal iCalendar/ICS (http://tools.ietf.org/html/rfc5545) parser for Node.js. This module is a direct fork
 of the ical.js module by Peter Braden (https://github.com/peterbraden/ical.js) which is primarily targeted
